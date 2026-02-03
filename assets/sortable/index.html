@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sortable</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+	<ul class="sortable">
+		<li>
+			<span class="sortableLabel_sort_1">Item 1</span>
+			<input type="text" class="input hidden sortableInput_sort_1" name="settings[sort_1][i1]" value="Item 1">
+			<span style="float:right"><i class="fa fa-arrows-v"></i></span>
+		</li>
+
+		<li>
+			<span class="sortableLabel_sort_1">Item 2</span>
+			<input type="text" class="input hidden sortableInput_sort_1" name="settings[sort_1][i2]" value="Item 2">
+			<span style="float:right"><i class="fa fa-arrows-v"></i></span>
+		</li>
+		<li class="disabled">
+			<span class="sortableLabel_sort_1">Item 4</span>
+			<input type="text" class="input hidden sortableInput_sort_1" name="settings[sort_1][i4]" value="Item 4">
+			<span style="float:right"><i class="fa fa-arrows-v"></i></span>
+		</li>
+
+		<li>
+			<span class="sortableLabel_sort_1">Item 3</span>
+			<input type="text" class="input hidden sortableInput_sort_1" name="settings[sort_1][i3]" value="Item 3">
+			<span style="float:right"><i class="fa fa-arrows-v"></i></span>
+		</li>
+
+	</ul>
+
+
+
+
+<script src="script.js"></script>
+<link rel="stylesheet" href="style.css" />
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="connected sortable sortable1" style="float: left;width: 40%">
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+	<li>Item 4</li>
+
+</ul>
+
+<ul class="connected sortable sortable2" style="float: left;width: 40%">
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</ul>
+
+<ul class="connected sortable sortable3" style="float: left;width: 40%">
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</ul>
+
+
+
+
+<script type="text/javascript">
+	$(".sortable1, .sortable2, .sortable3").sortable({
+		connectWith: ".connected"
+	});
+</script>
+
+
+
+
+
+</body>
+</html>

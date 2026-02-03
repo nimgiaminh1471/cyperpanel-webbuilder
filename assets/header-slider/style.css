@@ -1,0 +1,140 @@
+.slider{
+    visibility: hidden;
+}
+.slider>ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+.header-slider-item{
+	position: relative;
+}
+.header-slider-item-body{
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 100%;
+	padding: 15px
+}
+.header-slider-item{
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box-slide-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 9;
+}
+
+.header-slider-content{
+    max-width: 600px;
+}
+.header-slider-heading{
+    letter-spacing: 2px
+}
+.header-slider-caption{
+    padding-top: 15px;
+    font-size: 70%
+}
+
+.header-slider-check-list>ul,
+.header-slider-btn-group{
+    animation-duration: 2s;
+}
+
+.header-slider-check-list>ul{
+    list-style-type: none;
+    padding: 0 0 0 20px;
+    margin: 20px 0
+}
+
+.header-slider-check-list li{
+    line-height: 24px;
+    margin: 5px 0px;
+    padding: 0px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+
+.header-slider-check-list li:before {
+    content: "\f058";
+    font: normal normal normal 12px/1 FontAwesome;
+    border: none;
+    color: #3ECF8E;
+    display: inline-block;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.header-slider-btn-group{
+    overflow: hidden;
+    margin-top: 10px
+}
+
+
+.header-slider-btn-group a{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: inline-block;
+    border-radius: 30px;
+    margin-top: 5px
+}
+
+.header-slider-btn-group a:nth-child(2){
+    margin-left: 15px;
+}
+
+
+
+.header-slider-btn-group a:last-child{
+    background-color: transparent;
+}
+
+.header-slider-btn-group a:last-child:hover{
+    background-color: #eeeeee !important;
+    border-color: #eeeeee !important;
+    color: #333 !important;
+}
+
+.fadeInDown{
+    animation: fadeInDown forwards;
+}
+.zoomin{
+    animation: zoomin 10s ease-in infinite;
+    transition: all .5s ease-in-out;
+}
+
+
+@keyframes fadeInDown{
+    0%{/*opacity:0;*/
+        transform:translateY(-50px);
+    }
+
+    100%{
+        /*opacity:0;*/
+        transform:translateY(0);
+    }
+}
+
+@keyframes zoomin {
+  0% {
+    opacity: 1;
+    padding-left: 0px
+  }
+  50% {
+    opacity: .4;
+    padding-left: 25px
+  }
+  100% {
+    opacity: 1;
+    padding-left: 0px
+  }
+}

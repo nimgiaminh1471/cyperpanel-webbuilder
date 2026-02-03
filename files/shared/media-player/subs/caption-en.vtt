@@ -1,0 +1,21 @@
+WEBVTT
+
+00:00.700 --> 00:10.110
+Media HTML 5 Player
+Code by <b>Sien Lo</b>
+
+00:10.500 --> 00:15.000 align:right size:35%
+Caption right
+
+00:15.100 --> 00:20.000
+Font color
+<v Red> Red </v> <v Blue> Blue </v> <v Green> Green </v> <v Yellow> Yellow </v>
+<v Black> Black </v>  <v White> White </v> 
+
+00:20.100 --> 00:40.000
+<v Red>##### Subtitle on IE browser, Need add vtt mime type
+#For Apache server</v> <v Blue>.htaccess</v>
+AddType text/vtt .vtt
+
+00:40.100 --> 00:50.000
+##### Other server,please search google: Add mime type

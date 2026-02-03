@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html style="background:#222222 url(manager/include/bg.jpg) top no-repeat;background-attachment: fixed">
+<head>
+<title>Media Player by Sien</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="manager/include/style.css" media="all" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+
+
+$(".lmenu").click(function(){
+
+$(".prev-view").hide();
+$(".lmenu").removeClass("lmenu-active");
+$("."+$(this).attr("data-show")+"").slideToggle();
+
+$($(this)).toggleClass("lmenu-active");
+
+$("#player-code").text(''+$('nav').html()+''+$('.'+$(this).attr("data-show")+'').html()+'');
+
+
+if($(this).attr("data-show")=="video-fullpage"){
+$(".video-full-page").show();
+}else{
+$(".video-full-page").hide();
+}
+
+
+
+});
+
+
+$("nav").find("link").each(function(){
+$(this).attr("href",$(this).prop("href"));
+});
+$("nav").find("script").each(function(){
+$(this).attr("src",$(this).prop("src"));
+});
+
+$(".prev-view").filter(function(e){
+
+
+$(".player-code").append('<div class="'+$(this).attr('class')+'" style="padding:0px;'+(e==0 ? '' : 'display:none')+'"><div class="big-title"><i class="fa fa-code" aria-hidden="true"></i> CODE: '+$(document).find('.lmenu[data-show='+$(this).attr('class').replace('prev-view ','')+']').text()+'</div> <div class="menu bd-bot"><textarea style="width:100%" rows="8"><script src="https://code.jquery.com/jquery-3.2.1.min.js"><\/script>'+$('nav').html()+''+$(this).html()+'</textarea></div></div>');
+
+
+});
+
+
+
+
+
+
+
+
+var str = $(".download b").text();
+$(".download b").text("");
+
+$.each(str.split(""),function(i,val){
+
+setTimeout(function(){
+$(".download").append('<span>'+val+'</span>');
+},200*i);
+
+});
+
+
+
+
+function text_write(element,split,speed,loop,height,fadein){
+
+var str = $(element).html();
+if(height){ $(element).css({"min-height":$(element).height()}); }
+$(element).html("");
+
+$.each(str.split(split),function(i,t){
+var val = t+split;
+
+
+setTimeout(function(){
+var type = str.substring(0, i);
+
+
+
+if(split.length==0){
+$(element).html(type+' <cursor>|</cursor>');
+}else{
+$(element).append($(val).hide().fadeIn(fadein*1e3));
+}
+
+if(i==(str.length-1)){
+if(loop>0){ setTimeout(function(){ text_write(element,split,speed,loop,height,fadein) },loop*1e3); }
+$(element).find("cursor").remove();
+}
+
+},speed*i);
+
+
+
+
+
+
+});
+
+}
+
+text_write(".desc","</li>",500,0,true,2);
+text_write(".info","",30,0,true,1);
+
+
+
+
+
+
+
+
+
+
+});
+</script>
+
+
+</head>
+<body class="body">
+
+
+<nav>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+<link rel="stylesheet" href="player.css"/>
+<script src="player.js"></script>
+</nav>
+
+
+
+
+<div class="big-title"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Trình phát video và Audio</div>
+
+
+<div class="main-bar">
+
+<div class="left-bar">
+<a class="lmenu lmenu-active" data-show="video-normal"><i class="fa fa-video-camera" aria-hidden="true"></i> Video Thông thường</a>
+<a class="lmenu" data-show="video-play-list"><i class="fa fa-film" aria-hidden="true"></i> Nhiều danh sách Video</a>
+<a class="lmenu" data-show="audio-player"><i class="fa fa-music" aria-hidden="true"></i> Audio player</a>
+<a class="lmenu" data-show="video-fullpage"><i class="fa fa-television" aria-hidden="true"></i> Video nền & ẩn trình đ.khiển</a>
+<a class="lmenu-link" target="_blank" href="manager"><i class="fa fa-wrench" aria-hidden="true"></i> Quản lý media</a>
+<a class="lmenu-link center download" href="media-player_1.1.zip"><i class="fa fa-download" aria-hidden="true"></i> <b>Tải code ngay</b></a>
+</div>
+
+
+
+
+
+
+<div class="right-bar">
+
+<div class="prev-view video-normal">
+
+<div class="media-player" style="max-width:800px;height:350px; margin: 0 auto;" data-config="download">
+<div class="media-body">
+<div class="media-meta"><div class="media-title">Còn lại gì sau cơn mưa - Hồ Quang Hiếu</div></div>
+<video poster="assets/Con-lai-gi-sau-con-mua.jpg" preload="metadata" controls="controls">
+<source src="http://mirrors.standaloneinstaller.com/video-sample/jellyfish-25-mbps-hd-hevc.mp4" type="video/mp4" data-quality="1080P1">
+<source src="http://mirrors.standaloneinstaller.com/video-sample/Panasonic_HDC_TM_700_P_50i.mp4" type="video/mp4" data-quality="1080P2">
+<track label="Vietnamese" kind="subtitles" srclang="vi" src="subs/caption-vi.vtt">
+<track label="English" kind="subtitles" srclang="en" src="subs/caption-en.vtt">
+</video>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="prev-view video-play-list" style="display:none">
+
+<div class="media-player" style="max-width:800px;height:350px; margin: 0 auto;" data-config="download no-ads">
+<div class="media-body">
+<div class="media-meta"><div class="media-title">Danh sách phát hỗ trợ nhiều phần video - dành cho phim dài tập</div></div>
+
+<video data-label="Đáng để quên - Hải Rio" poster="assets/CS-Hai-Rio.jpg" preload="metadata" controls>
+<source src="assets/Dang-De-Quen-240P.mp4" type="video/mp4" data-quality="240P">
+<source src="assets/Dang-De-Quen-144P.mp4" type="video/mp4" data-quality="144P">
+<track label="Tiếng việt" kind="subtitles" srclang="vi" src="subs/dang-de-quen-vi.vtt">
+<track label="English" kind="subtitles" srclang="en" src="subs/dang-de-quen-en.vtt">
+</video>
+
+<!--PlayList-->
+<ul>
+<li data-label="Yêu Anh Đến Đau Lòng - Song Thư [Có Sub]">
+<data data-type="video/mp4" value="assets/Yeu-Anh-Den-Dau-Long-Song-Thu_480P.mp4">480P</data>
+<data data-type="video/mp4" value="assets/Yeu-Anh-Den-Dau-Long-Song-Thu_144P.mp4">144P</data>
+<sub data-kind="subtitles" data-srclang="vi" data-src="subs/YeuAnhDenDauLong-vi.vtt">Tiếng Việt</sub>
+<sub data-kind="subtitles" data-srclang="en" data-src="subs/YeuAnhDenDauLong-en.vtt">English</sub>
+</li>
+<li data-label="Em là người thứ mấy - Uyên Trang">
+<data data-type="video/mp4" value="assets/Em-La-Nguoi-Thu-May-144P.mp4">144P</data>
+<data data-type="video/mp4" value="assets/Em-La-Nguoi-Thu-May-240P.mp4">240P</data>
+</li>
+
+</ul>
+<!--/PlayList-->
+
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="prev-view audio-player" style="display:none">
+
+<div class="media-player audio" style="width:100%;" data-config="download">
+
+<div class="media-meta">
+<img alt="Ca sĩ Thái Lan Viên" src="assets/CS-Thai-Lan-Vien.jpg"/>
+<span class="audio-info">
+<span class="audio-title"> <i class="fa fa-music"></i>      <span>Người Đã Từng Thương</span> </span>
+<span class="audio-singer"><i class="fa fa-microphone"></i> <span>Thái Lan Viên</span> </span>
+<i class="fa fa-clock-o"></i> 201x
+</span>
+</div>
+
+<audio data-label="Người đã từng thương" controls>
+<source src="assets/Nguoi-Da-Tung-Thuong-Remix_128Kbps.mp3" type="audio/mpeg" data-quality="128Kbps"/>
+<source src="assets/Nguoi-Da-Tung-Thuong-Remix_320Kbps.mp3" type="audio/mpeg" data-quality="320Kbps"/>
+</audio>
+
+<!--PlayList-->
+<ul>
+
+<li data-label="Thật tiếc cho anh" data-singer="Minh Vương M4U">
+<data data-type="audio/mpeg" value="assets/That-Tiec-Cho-Anh_128kbps.mp3">128Kbps</data>
+<data data-type="audio/mpeg" value="assets/That-Tiec-Cho-Anh_320kbps.mp3">320Kbps</data>
+</li>
+<li data-label="Đường Tím Bằng Lăng" data-singer="Quỳnh Trang - Thiên Quang">
+<data data-type="audio/mpeg" value="assets/Duong-Tim-Bang-Lang-Thien-Quang_Quynh-Trang.mp3">128Kbps</data>
+</li>
+
+</ul>
+<!--/PlayList-->
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+<script>
+$(document).ready(function(){
+$(".video-full-page").hide();
+});
+</script>
+<div class="prev-view video-fullpage" style="display:none">
+
+<!--Video nền toàn màn hình-->
+<video class="video-full-page" preload="auto" loop autoplay muted> <!-- Xóa muted="" để phát cả âm thanh-->
+<source src="assets/Con-Lai-Gi-Sau-Con-Mua-360P.mp4" type="video/mp4">
+</video>
+<!--/Video nền toàn màn hình-->
+
+
+
+<!--Video không hiện trình diều khiển-->
+<div class="media-player" style="max-width:800px;height:350px;margin: 0 auto;" data-config="no-ads">
+<div class="media-body">
+<div class="media-meta"><div class="media-title">Video không hiện trình điều khiển</div></div>
+<video poster="assets/BG-video.jpg" preload="metadata"> <!-- Thêm autoplay để tự động phát-->
+<source src="assets/Con-Lai-Gi-Sau-Con-Mua-360P.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+<!--/Video không hiện trình diều khiển-->
+
+
+</div>
+
+ 
+
+ 
+ 
+</div> 
+
+
+
+
+
+
+</div>
+
+
+
+
+<div class="player-code">
+</div>
+<div class="menu bd-bot">
+<p>
+<b>data-config="download no-ads" </b>:
+<br/>Thêm <b>download</b> để cho phép tải về máy<br/>
+Thêm <b>no-ads</b> để không hiện quảng cáo trong video này
+</p>
+<p><b>&lt;video </b>:
+<br/>Thêm <b>autoplay</b> để tự động phát<br/>
+Thêm <b>muted</b> để tắt âm lượng<br/>
+Xóa <b>controls</b> để ẩn trình điều khiển<br/>
+</p>
+
+</div>
+<div class="big-title"><i class="fa fa-info-circle" aria-hidden="true"></i> GIỚI THIỆU CÁC TÍNH NĂNG</div>
+ <div class="menu bd-bot">
+ 
+ <ol class="desc" style="font-size:16px;line-height:1.6">
+ <li>Tùy chỉnh style màu sắc nhanh chóng đầy đủ theo ý thích của bạn</li>
+ <li>Hỗ trợ danh sách phát nhiều video gọn gàng</li>
+ <li>Thêm nhiều chất lượng video, cho phép tải về máy hay không,chỉnh tốc độ phát, phụ đề...</li>
+ <li>Thêm và quản lý quảng cáo dễ dàng (quảng cáo video và hình ảnh popup), có thống kê lượt xem+lượt click quảng cáo</li>
+ <li>Thông kê tổng lượt phát video và audio mỗi ngày, Kiểm tra link tệp tin audio hay video bị lỗi</li>
+ 
+ </ol> 
+ 
+ <ul class="info" style="font-size:16px">
+ <li style="color:tomato">Các tính năng chỉnh màu, quản lý quảng cáo, thống kê lượt xem Cần chạy trên <sup>(<b>PHP</b>)</sup>.</li>
+ <li>Code rất nhẹ .js minify lại chỉ nặng(20Kb), .css(8Kb) , Các player khác nặng tới vài trăm Kb,Chỉ cần chèn <i>Jquery,FontAwesome</i> (2 cái này chắc site nào cũng dùng) với <i>player.js</i> và <i>player.css là dùng được</i><br/>Hỗ trợ hầu hết các trình duyệt điện thoại lẫn máy tính, Tắt Javascript vẫn có thể phát video như thường</li>
+ <li>Code do mình viết nhưng Toàn quyền do bạn quản lý vĩnh viễn, không có một chút bản quyền nào</li>
+ </ul> 
+</div>
+
+<div class="fmenu bd">Bạn có thể chuyển thư mục <b>media-player</b> này vào trong thư mục khác để gọn hơn thay vì để trong <b>public_html</b></div>
+ <div class="footer">Phiên bản <b>1.1</b><br/>Cập nhật ngày <b>5/01/2018</b></div>
+ </body></html>
+ 

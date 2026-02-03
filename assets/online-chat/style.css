@@ -1,0 +1,97 @@
+#online-chat{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	max-width: 350px;
+	max-height: 80vh;
+	overflow: auto;
+	z-index: 199720;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.18);
+}
+.online-chat-actived{
+	width: 100%
+}
+#online-chat>.heading{
+	padding: 10px 15px;
+	text-align: center;
+	border-radius: 0 5px 0 0;
+	cursor: pointer;
+}
+.online-chat-unread>sup{
+	background: tomato;
+	border-radius: 50%;
+	min-width: 20px;
+	padding: 2px;
+	display: inline-block;
+}
+.online-chat-body{
+	background: white;
+	padding: 10px 10px 20px 10px;
+}
+.online-chat-content{
+	position: relative;
+}
+.online-chat-content>button{
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	border-radius: 50%
+}
+.online-chat-conversation-right,
+.online-chat-conversation-left{
+	max-height: 320px;
+	overflow: auto;
+}
+.online-chat-conversation>div::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.online-chat-conversation>div::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+.online-chat-conversation>div::-webkit-scrollbar-thumb {
+  background: orange; 
+}
+
+/* Handle on hover */
+.online-chat-conversation>div::-webkit-scrollbar-thumb:hover {
+  background: tomato; 
+}
+.online-chat-conversation-left{
+	border-right: 1px solid #EAEAEA
+}
+.online-chat-item-my,
+.online-chat-item-your{
+	border-radius: 20px;
+	padding: 10px;
+	margin-bottom: 10px;
+	word-break: break-word;
+	overflow-wrap: break-word;
+}
+.online-chat-item-my{
+	background: #ADE3F1;
+	color: black;
+}
+.online-chat-item-your{
+	background: #F1F0F0;
+	color: black;
+}
+.online-chat-item-my img,
+.online-chat-item-your img{
+	max-width: 150px;
+	margin: auto
+}
+#online-chat .user-avatar{
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+}
+@media (max-width: 767px){
+	.online-chat-conversation-left{
+		margin-bottom: 20px;
+		border-bottom: 2px solid tomato
+	}
+}

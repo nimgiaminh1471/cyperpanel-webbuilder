@@ -1,0 +1,54 @@
+.form-date-picker{
+	position: relative;
+}
+
+.form-date-picker>div{
+	position: absolute;
+	background: white;
+	text-align: center;
+	padding: 10px 5px;
+	box-shadow: 0 2px 8px 0 rgba(0,0,0,.2);
+	z-index: 1421997;
+	width: 100%;
+	max-width: 280px;
+}
+
+.form-date-picker-top>div{
+	bottom: 1px;
+}
+
+.form-date-picker-bottom>div{
+	top: 35px;
+}
+
+.form-date-picker>div td{
+	text-align: center;
+	padding: 5px;
+}
+.form-date-picker>div .primary-hover{
+	cursor: pointer;
+}
+
+
+.form-date-picker select{
+	margin: 10px 2px;
+}
+.form-date-day-disabled{
+	color: #EAEAEA !important;
+	cursor: help;
+}
+.form-date-wrap>code{
+	display: none
+}
+.form-date-sunday{
+	color: tomato;
+}
+.form-date-warning{
+	display: none;
+	color: tomato;
+	padding: 10px 5px 0 5px
+}
+.form-date-nav{
+	cursor: pointer;
+	padding: 5px;
+}

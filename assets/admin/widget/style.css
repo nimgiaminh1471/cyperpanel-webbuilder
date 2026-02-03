@@ -1,0 +1,63 @@
+.widget-item{
+	position: relative;
+}
+.widget-toolbar{
+	position: absolute;
+	z-index: 199707;
+	top: 5px
+}
+.widget-toolbar>a{
+	position: relative;
+	margin: 2px;
+	width: 30px;
+	height: 30px;
+	background-color: #E2B2E8;
+	padding: 5px;
+	border-radius: 50%;
+	display: inline-block;
+	text-align: center;
+}
+.widget-toolbar>a>i{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.widget-toolbar>.widget-item-action-all{
+	background-color: #E48D7F;
+}
+
+.widget-add-btn{
+	display: block;
+	background-color: #ECFFFE;
+	padding: 6px;
+	margin: 5px 0;
+	border: 1px dashed skyblue
+}
+.widget-add-btn:hover{
+	border: 1px dashed tomato
+}
+.widget-manager{
+	position: fixed;
+	z-index: 97;
+	bottom: 0px;
+	right: 0px;
+	width: 100%;
+	max-width: 450px;
+}
+.widget-manager>div:last-child{
+	overflow-x: hidden; 
+	overflow-y: auto;
+	max-height: 400px;
+	background-color: white;
+	box-shadow: 0 2px 8px 0 rgba(0,0,0,.2);
+}
+footer .panel>.heading{
+	color: #313131 !important
+}
+
+@media(max-width: 1023px){
+	.widget-add-btn{
+		display: none !important
+	}
+}

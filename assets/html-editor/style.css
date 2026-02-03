@@ -1,0 +1,305 @@
+@charset "UTF-8";
+.editor{
+	position: relative;
+	background-color: white;
+	box-shadow: 0 2px 8px 0 rgba(0,0,0,.2);
+	clear: both;
+}
+
+.editor-textarea-clone{
+	background-color: white;
+	padding:5px;
+	min-height: 250px;
+	width:100%;
+	margin: 0;
+	border: none;
+	overflow: auto;
+	max-height: 500px;
+	tab-size : 5;
+}
+
+.editor-textarea-clone:focus{
+	border: none;
+	box-shadow: none;
+	outline: none;
+}
+
+.editor>textarea{
+	display: none !important;
+}
+
+#editorAsHTML textarea{
+	background-color: #EAEAEA;
+	padding: 10px;
+	min-height: 250px;
+	width: 100%;
+	height: calc(100% - 50px);
+	margin: 0;
+	border: none;
+	overflow: auto;
+	tab-size : 5;
+	border-radius: 0 !important;
+	font-size: 16px
+}
+
+.editor-fullScreen{
+	z-index: 197;
+	position: fixed;
+	top:0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding-top: 20px
+}
+
+.editor.editor-fullScreen .editor-textarea-clone{
+	height: 80%
+}
+
+.editor-buttonBox-fullScreen,
+.editor-buttonBox-pin{
+	float: right
+}
+
+.editor-button-showSub:after{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 3px solid transparent;
+	border-right: 3px solid transparent;
+	border-top: 3px solid #222222;
+	right: 0;
+	bottom: 50%;
+	content: "";
+}
+
+.editor-btn-actived.editor-button-showSub:after{
+	border-top: 4px solid tomato;
+}
+
+.editor-info{
+	position: relative;
+	font-size: small;
+	color: gray;
+	background-color: white;
+	padding: 5px;
+	min-height: 20px
+}
+.editor-info i,
+.editor-info span{
+	position: absolute;
+	top: 0
+}
+.editor-info i{
+	right: 5px;
+}
+.editor-info span{
+	left: 5px;
+}
+.editor-toolbar{
+	border-bottom: 1px solid skyblue;
+	padding: 10px 
+}
+
+.editor-toolbar>div{
+	margin-top:3px;
+}
+
+.editor-toolbar button{
+	border: none;
+	padding: 10px;
+	background-color: white;
+	cursor: pointer;
+}
+.editor-toolbar button:hover{
+	background-color: skyblue
+}
+.editor-toolbar button:active,
+.editor-toolbar button:focus{
+	border: none;
+	outline: none
+}
+
+.editor-buttonBox{
+	position: relative;
+	display: inline-block;
+}
+
+.editor-buttonBox>section{
+	display: none;
+	position: absolute;
+	box-shadow: 0 2px 8px 0 rgba(0,0,0,.2);
+	z-index: 197;
+	background-color: white;
+	max-height: 320px;
+	min-width: 220px;
+	overflow: auto;
+	text-align: center;
+}
+.editor-buttonBox>section::-webkit-scrollbar { 
+	display: none; 
+}
+
+.editor-buttonBox>section input[type='text'],
+.editor-buttonBox>section input[type='color'],
+.editor-buttonBox>section textarea{
+	width: 100%;
+	text-align: left;
+	display: inline-block;
+}
+.input-color i{
+	right: 8px;
+    transform: translate(0,-50%);
+}
+.editor-btn-actived{color:tomato;}
+.editor-btn-disabled{color: gray !important}
+.editor-btn-block{display: block;width: 100%}
+
+.editor-textarea-clone p{
+	display: block !important;
+	min-width:50px;
+	min-height:25px !important;
+	padding: 2px
+}
+.editor-textarea-clone>*{
+	min-width:50px;
+	min-height:25px !important;
+}
+.editor-textarea-clone>*:hover{
+	outline: 1px dashed tomato !important;
+}
+.editor-textarea-clone>p:empty:first-child:before{
+	content: "Nhập nội dung...Shift+Enter để xuống dòng";
+	color: gray;
+	cursor: text;
+}
+.editor-textarea-clone>p:empty:last-child{
+	outline: 1px dashed skyblue !important;
+}
+.editor-textarea-clone>p:empty:first-child{
+	outline: none !important;
+}
+.editor-textarea-clone .media,
+.editor-textarea-clone .slider,
+.editor-textarea-clone .youtube-video,
+.editor-textarea-clone .script{
+	display: block;
+	visibility: hidden;
+	position: relative;
+	overflow: hidden;
+	height: 80px;
+	cursor: pointer;
+}
+.editor-textarea-clone .media:before,
+.editor-textarea-clone .slider:before,
+.editor-textarea-clone .youtube-video:before,
+.editor-textarea-clone .script:before{
+	font-family: FontAwesome;
+	left:50%;
+	top:5px;
+	position:absolute;
+	font-size: 40px;
+	visibility: visible;
+	color: skyblue
+}
+.editor-textarea-clone .media.audio:before{
+	content: "\f1c7";
+}
+.editor-textarea-clone .media.video:before{
+	content: "\f1c8";
+}
+.editor-textarea-clone .slider:before{
+	content: "\f1c5";
+}
+.editor-textarea-clone .youtube-video:before{
+	content: "\f16a";
+}
+.editor-textarea-clone .script:before{
+	content: "\f1c9";
+}
+.editor-embed-switch{float: left;width: 33.33333%}
+.editor-embed-switch.menu-bg{color: tomato}
+.editor-toolbar-wrap{
+	z-index:197;
+	background-color:white;
+}
+#editorPopup{
+	position:absolute;
+	z-index:197;
+	display:none;
+	background-color:#FAFAFA;
+	box-shadow: 0 2px 8px 0 rgba(0,0,0,.2);
+	width: 90%
+}
+#editorPopup>div,
+#editorPopup .panel-body>div,
+#editorPopup .panel-body>div>div{
+	padding: 2px;
+	display: block;
+	width: 100%;
+}
+#editorPopup .checkbox{
+	padding: 8px !important
+}
+#editorPopup i{
+	padding: 10px;
+	cursor: pointer;
+	text-align: center
+}
+#editorPopup>div>a{
+	display: block;	
+}
+#editorPopup>div>a i{
+	width: 100%;
+	display: block;
+	text-align: left
+}
+#editorPopup input,
+#editorPopup select,
+#editorPopup textarea{
+	width: 100%;
+}
+#editorPopup i:hover,
+#editorPopup>.right:hover{background: skyblue}
+#editorAsHTML{
+	display: none;
+}
+.editor-textarea-clone>._empty--new-page{
+	background: red;
+	color: white;
+	text-align: center;
+	margin: 40px 0 10px 0;
+	padding: 5px;
+	border-radius: 20px
+}
+.editor-textarea-clone .panel-body{
+	display: block !important;
+}
+.editor-drag-table{
+	padding: 5px;
+}
+.editor-drag-table span{
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 1px;
+	border: 1px solid #EFEAEA;
+}
+.editor-drag-table:hover{
+	cursor: pointer;
+}
+.editor-table-span-actived{
+	border: 1px solid skyblue !important;
+	background-color: #dbf5f9
+}
+.editor-td-selected{
+	background-color: skyblue !important
+}
+.editor-textarea-clone pre>code>xmp {
+    background: #272822;
+    padding: 20px;
+    color: white
+}
+.editor .timeline-body{
+	display: block !important
+}

@@ -1,0 +1,1 @@
+{!! view("WebsiteTemplate", ["allowCreateWebsiteTemplate"=>true, "websiteTemplateSearch"=>true], "website") !!}

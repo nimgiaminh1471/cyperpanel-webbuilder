@@ -1,0 +1,16 @@
+.progress-pie{
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+}
+.progress-pie p{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+	line-height: 1.5
+}

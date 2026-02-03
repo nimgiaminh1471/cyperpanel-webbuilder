@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
+<head>
+<meta name="language" content="Vietnamese" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Slider by @LoKiem</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+
+
+
+
+<link rel="stylesheet" href="/assets/slider/style__complete.css" media="all" />
+<script src="/assets/slider/script.js"></script>
+
+
+<div class="block-title"><span>Hiệu ứng chuyển trái &lt;&gt; phải</span></div>
+
+<div class="slider" style="width:100%;max-height: 320px">
+	<ul class="slider-basic" data-autoplay="1">
+		<li>
+			<img src="https://dummyimage.com/1920x600/825382/ffffff.jpg">
+		</li>
+		<li>
+			<img src="https://dummyimage.com/1920x600/93c4c9/ffffff.jpg">
+		</li>
+		<li>
+			<img src="https://dummyimage.com/1920x600/824824/ffffff.jpg">
+		</li>
+		<li>
+			<img src="https://dummyimage.com/1920x600/2148a3/ffffff.jpg">
+		</li>
+	</ul>
+	<div></div>
+	<i class="slider-btn-prev"></i>
+	<i class="slider-btn-next"></i>
+</div>
+
+
+<div class="block-title"><span>Hiệu ứng chuyển trái &lt;&gt; phải ẩn icon</span></div>
+
+<div class="slider" style="width:100%;max-height: 320px">
+	<ul class="slider-basic" data-autoplay="1">
+		<li>
+			<img src="https://dummyimage.com/1920x600/825382/ffffff.jpg">
+		</li>
+		<li>
+			<img src="https://dummyimage.com/1920x600/93c4c9/ffffff.jpg">
+		</li>
+		<li>
+			<img src="https://dummyimage.com/1920x600/824824/ffffff.jpg">
+		</li>
+		<li>
+			<img src="https://dummyimage.com/1920x600/2148a3/ffffff.jpg">
+		</li>
+	</ul>
+</div>
+
+
+
+
+
+<div class="block-title"><span>Hiệu ứng chuyển hiện dần</span></div>
+<div class="slider" style="width:100%;max-height: 350px">
+<ul class="slider-fadein" data-autoplay="2">
+	<li>
+		<img src="https://dummyimage.com/1920x600/825382/ffffff.jpg">
+	</li>
+	<li>
+		<img src="https://dummyimage.com/1920x600/93c4c9/ffffff.jpg">
+	</li>
+	<li>
+		<img src="https://dummyimage.com/1920x600/824824/ffffff.jpg">
+	</li>
+	<li>
+		<img src="https://dummyimage.com/1920x600/2148a3/ffffff.jpg">
+	</li>
+</ul>
+	<div></div>
+	<i class="slider-btn-prev"></i>
+	<i class="slider-btn-next"></i>
+</div>
+
+
+
+
+
+
+<div class="block-title"><span>Slide tùy chỉnh</span></div>
+<style type="text/css">
+	.slider-box{
+		float: left;
+		width: 20%;
+	}
+	.slider-box>div{
+		border: 1px solid red;
+		min-height: 80px;
+		background: #EAEAEA;
+		margin: 5px;
+		position: relative;
+	}
+	.slider-box>div>span{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+</style>
+<div class="slider" style="width:100%;max-height: 320px">
+<ul class="slider-basic" data-autoplay="10">
+	<li>
+		<div class="slider-box"><div><span>Nội dung 1</span></div></div>
+		<div class="slider-box"><div><span><a href="/test">Nội dung 2</a></span></div></div>
+		<div class="slider-box"><div><span>Nội dung 3</span></div></div>
+		<div class="slider-box"><div><span>Nội dung 4</span></div></div>
+		<div class="slider-box"><div><span>Nội dung 5</span></div></div>
+	</li>
+	<li>
+		<div class="slider-box"><div><span>Nội dung 6</span></div></div>
+		<div class="slider-box"><div><span><a href="/test">Nội dung 7</a></span></div></div>
+		<div class="slider-box"><div><span>Nội dung 8</span></div></div>
+		<div class="slider-box"><div><span>Nội dung 9</span></div></div>
+		<div class="slider-box"><div><span>Nội dung 10</span></div></div>
+	</li>
+</ul>
+	<i class="slider-btn-prev"></i>
+	<i class="slider-btn-next"></i>
+</div>
+
+
+
+
+<!-- Thêm chút CSS giới thiệu cho đẹp ^^ -->
+<style>
+
+body{padding:10px;max-width: 1024px;margin: auto}
+
+.block-title {
+	margin-top: 50px;
+	border-bottom: 3px solid #17BAB3;
+	position: relative;
+
+}
+
+.block-title span {
+	display: inline-block;
+	font-weight: 700;
+	padding: 0 18px;
+	text-transform: uppercase;
+	line-height: 37px;
+	position: relative;
+	color: #fff;
+	background: #17BAB3;
+}
+
+.block-title span:before {
+	border-right: 20px solid transparent;
+	border-bottom: 37px solid #17BAB3;
+	content: "";
+	display: inline-block;
+	height: 0;
+	position: absolute;
+	right: -20px;
+	top: 0;
+	width: 0;
+}
+
+</style>
+
+
+
+
+
+
+
+
+</body>
+</html>

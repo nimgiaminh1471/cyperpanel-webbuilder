@@ -1,0 +1,27 @@
+.code-editor{
+	position: relative;
+	background-color: white;
+	height: 100%;
+	overflow: auto
+}
+.code-editor-textarea{
+	position: relative;
+	height: 100%
+}
+.code-editor textarea{
+	position: static;
+	width: 100%;
+	height: 100%;
+	border-radius: 0 !important
+}
+.code-editor button{
+	position: absolute;
+	bottom: 0;
+	right: 0
+}
+.code-editor-result{
+	position: relative;
+	padding: 10px;
+	max-height: 100%;
+	overflow: auto
+}

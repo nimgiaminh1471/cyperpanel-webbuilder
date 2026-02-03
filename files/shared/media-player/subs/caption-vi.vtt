@@ -1,0 +1,21 @@
+WEBVTT
+
+00:00.700 --> 00:10.110
+Media HTML 5 Player
+Code được viết bởi <b>Siên Lò</b>
+
+00:10.500 --> 00:15.000 align:right size:35%
+Bạn có thể chỉnh căn từng dòng caption
+
+00:15.100 --> 00:20.000
+Màu chữ
+<v Red> Red </v> <v Blue> Blue </v> <v Green> Green </v> <v Yellow> Yellow </v>
+<v Black> Black </v>  <v White> White </v> 
+
+00:20.100 --> 00:40.000
+<v Red>##### Để hiện phụ đề trên trình duyệt IE,Cần cấu hình
+# Nếu là Apache Server,hãy thêm dòng dưới vào file</v> <v Blue>.htaccess</v>
+AddType text/vtt .vtt
+
+00:40.100 --> 00:50.000
+##### Các server khác có thể tìm google: Add mime type

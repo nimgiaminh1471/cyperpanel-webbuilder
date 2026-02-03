@@ -1,0 +1,35 @@
+ul.sortable{
+	position: relative;
+	list-style-type: none;
+	overflow: auto;
+	padding: 10px;
+	max-height: 320px;
+	margin: 0
+}
+ul.sortable .sortable-header{
+	padding: 10px;
+	background-color: #F1EDF2;
+	border: 1px solid #CCC;
+	margin-bottom: 1px;
+	cursor: move;
+	user-select: none
+}
+ul.sortable li.disabled{
+	color: gray
+}
+.sortable-item{
+	border: 1px solid #CCC;
+	user-select: none;
+	margin-bottom: 5px;
+	background-color: #fff;
+}
+.sortable-item>div{
+	padding: 10px;
+	display: block;
+	font-style: italic;
+}
+
+.sortable-placeholder{
+	border: 2px dashed gray !important;
+	color: #F1EDF2
+}

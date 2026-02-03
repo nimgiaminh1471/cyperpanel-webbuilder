@@ -1,0 +1,67 @@
+.form-padding{
+	padding: 15px 40px 15px 40px;
+}
+.form-item>em{
+	font-size: small;
+	color: gray;
+	font-style: normal;
+	margin-right: 8px
+}
+
+.form-item-title{
+	color: gray;
+	font-size: 14px;
+}
+.form-item-image{
+	position: relative;
+	overflow: hidden;
+	width: 200px;
+	height: 130px;
+	border: 2px dashed #DDD;
+	color: gray
+}
+.form-item-image>img{
+	object-fit: cover;
+	max-width: 100%;
+	height: 90%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.form-item-image>.form-file-select-btn{
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+}
+.form-item-image>.form-clear-file-btn{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: red
+}
+.form-textarea{
+	width: 100%;
+	min-height: 120px
+}
+.input-horizontal-outer{
+	display: flex;
+	align-items: center;
+}
+@media (max-width: 768px) {
+	.form-item{
+		padding: 10px;
+	}
+
+	.form-item-title{
+		display: block
+	}
+	.input-horizontal-outer{
+		display: block;
+	}
+	.input-horizontal-outer>div,
+	.input-horizontal-outer input,
+	.input-horizontal-outer select{
+		width: 100% !important;
+	}
+}
