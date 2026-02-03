@@ -841,7 +841,7 @@
 								?>
 							<?php break; ?>;<?php case "status": ?>
 								<?php
-									if( strlen($w->package) == 0 ){
+									if( strlen($w->package ?? '') == 0 ){
 										$value = '<span class="label-warning">Dùng thử</span>';
 									}else if($expiredDays <= 0){
 										$value = '<span class="label-danger">Đã hết hạn</span>';
@@ -963,7 +963,7 @@
 									</div>
 								</div>
 								<div class="width-33x pd-5">
-									<?php if( strlen($w->package) == 0 && !permission("website_manager") ): ?>
+									<?php if( strlen($w->package ?? '') == 0 && !permission("website_manager") ): ?>
 										<div class="center">
 											<a data-modal="fa-dashboard<?php echo htmlEncode( $w->id ); ?>" class="modal-click">
 												<span>
@@ -1631,7 +1631,7 @@
 			<div class="bg pd-10">
 				<?php foreach($webAction as $action=>$item): ?>
 					<?php if( !isset($item["hidden"]) ): ?>
-						<?php if( empty($item["hiddenIfRenew"]) || isset($item["hiddenIfRenew"]) && strlen($w->package) == 0  || permission("website_manager") ): ?>
+						<?php if( empty($item["hiddenIfRenew"]) || isset($item["hiddenIfRenew"]) && strlen($w->package ?? '') == 0  || permission("website_manager") ): ?>
 							<?php if( empty($item["hiddenIfManager"]) || isset($item["hiddenIfManager"]) && !permission("website_manager") ): ?>
 								<a data-modal="<?php echo htmlEncode($item["icon"]); ?><?php echo htmlEncode($w->id); ?>" class="modal-click block pd-10" style="<?php echo htmlEncode( ( isset($item["color"]) ? 'color: '.$item["color"].' !important' : '' ) ); ?>">
 									<i class="fa-icon fa <?php echo htmlEncode($item["icon"]); ?>"></i> <?php echo htmlEncode($item["title"]); ?>
@@ -1647,8 +1647,8 @@
 						'.$item["body"].'
 						<div class="website-action-msg-'.$w->id.' hidden alert-danger">'.($websiteActionMsg??'').'</div>
 						'.(!empty($item["button"]) ? '
-							'.( permission('website_manager') || empty($item['renewRequired']) || isset($item['renewRequired']) && strlen($w->package) > 0 ? '
-								'.($action == "delete" && strlen($w->package) > 0 && !permission('website_manager') ? '
+							'.( permission('website_manager') || empty($item['renewRequired']) || isset($item['renewRequired']) && strlen($w->package ?? '') > 0 ? '
+								'.($action == "delete" && strlen($w->package ?? '') > 0 && !permission('website_manager') ? '
 									<div class="alert-danger">
 										Vui lòng liên hệ hỗ trợ nếu muốn xóa website đã gia hạn
 									</div>

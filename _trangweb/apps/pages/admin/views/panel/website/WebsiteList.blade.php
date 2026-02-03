@@ -160,7 +160,7 @@
 								@php
 									if(permission("website_manager", $w->users_id)){
 										echo '<span class="label-info">Nội bộ</span>';
-									}else if( strlen($w->package) == 0 ){
+									}else if( strlen($w->package ?? '') == 0 ){
 										echo '<span class="label-warning">Dùng thử</span>';
 									}else if($expiredDays <= 0){
 										echo '<span class="label-danger">Đã hết hạn</span>';
