@@ -1,0 +1,9 @@
+# Dùng file này nếu .htaccess chính gây 403/500: đổi tên .htaccess thành .htaccess.bak, rồi đổi .htaccess.minimal thành .htaccess
+DirectoryIndex index.php index.html
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.php [L]
+</IfModule>
