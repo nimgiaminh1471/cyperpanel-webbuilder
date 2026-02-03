@@ -25,7 +25,7 @@ define("CONFIG", [
 		"public_path_template" => null,  // null = mặc định. CyberPanel: "/home/%s/public_html"
 		"package" => "Default"            // CyberPanel: package name khi tạo website
 	],
-	"SSL"           => true, // Chuyển sang https
+	"SSL"           => false, // Chuyển sang https
 	"WWW"           => false, // Dùng www.
 	"MAXDISK"       => 7000, // Dung lượng tối đa (Mb)
 ]);
