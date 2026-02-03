@@ -217,10 +217,10 @@ function device($os=false ,$full=false){
 
 // Html char
 function htmlEncode($str){
-	return htmlentities($str, ENT_QUOTES, 'UTF-8');
+	return htmlentities((string) ($str ?? ''), ENT_QUOTES, 'UTF-8');
 }
 function htmlDecode($str){
-	return html_entity_decode($str, ENT_QUOTES, 'UTF-8');
+	return html_entity_decode((string) ($str ?? ''), ENT_QUOTES, 'UTF-8');
 }
 
 
