@@ -252,9 +252,18 @@ foreach( glob( dirname(__DIR__, 2)."/".BUILDER_DOMAIN."/_trangweb/builder/includ
 		$publicRoot = self::userPublic($w->domain);
 		$databaseFileNameLoad = glob(SYSTEM_ROOT."/builder/database-setup/*_w{$w->id}.sql")[0] ?? glob(SYSTEM_ROOT."/builder/database-setup/*_u{$w->id}.sql")[0] ?? null;
 		$databaseFileName     = $databaseFileNameLoad ?? SYSTEM_ROOT."/builder/database-template/{$w->app}.sql";
-		// var_dump all info 
-		var_dump($w, $connection, $databaseFileName, $databaseFileNameLoad);
-		die();
+		// Debug: log to file (var_dump often doesn't show due to output buffering / redirect)
+		$debugLog = SYSTEM_ROOT.'/builder/debug-import-db.log';
+		$debug = date('Y-m-d H:i:s')."\n"
+			."databaseFileNameLoad: ".($databaseFileNameLoad ?? 'null')."\n"
+			."databaseFileName:     ".$databaseFileName."\n"
+			."file_exists: ".(file_exists($databaseFileName) ? 'yes' : 'no')."\n"
+			."w->id: ".($w->id ?? '').", w->app: ".($w->app ?? '')."\n"
+			."connection: ".print_r($connection, true)."\n"
+			."w (object): ".print_r($w, true)."\n---\n";
+		file_put_contents($debugLog, $debug, FILE_APPEND);
+		// Uncomment next line to stop here and see debug in response (if output is visible):
+		// die('<pre>'.htmlspecialchars($debug).'</pre>');
 		if( !file_exists($databaseFileName) ){
 			return "
 				<div>
