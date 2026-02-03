@@ -46,9 +46,9 @@
 {{-- Tạo website --}}
 @if( isset($_POST["create"]) )
 	@php
-		if( isset($websitePending->id) ){
-			$createWebsiteMsg="Vui lòng chờ vài giây để tạo tiếp";
-		}
+		// if( isset($websitePending->id) ){
+		// 	$createWebsiteMsg="Vui lòng chờ vài giây để tạo tiếp";
+		// }
 		$webConfig=[];
 		$template=BuilderDomain::where("app_name", "!=", "")->where("id", POST("template") )->first();
 		if( !permission("website_manager") && empty($template->id) ){
