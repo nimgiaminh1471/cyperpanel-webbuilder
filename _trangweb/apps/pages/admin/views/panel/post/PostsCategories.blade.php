@@ -131,9 +131,9 @@ pages\admin\controllers\CategoriesManager::updateRelationship();
 @endphp
 
 {{-- Thêm chuyên mục --}}
-{!!modal('categoriesForm', 'Thêm chuyên mục', '
+{!!modal('Thêm chuyên mục', '
 	<form id="categoriesForm" class="form"></form>
-','450px', false, true)!!}
+', 'categoriesForm', '450px', false, true)!!}
 
 
 </div>

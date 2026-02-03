@@ -171,7 +171,7 @@
 				</div>
 			</div>
 		</div>
-		{!! modalForm('create-website', 'Nhập thông tin website để khởi tạo', '
+		{!! modalForm('Nhập thông tin website để khởi tạo', '
 			<form class="form create-webiste-form" action="/admin/WebsiteManager" method="POST" style="padding: 20px">
 				<div style="display:none">
 					<input type="password" tabindex="-1"/>
@@ -199,8 +199,8 @@
 					<button type="button" class="btn-primary width-50">KHỞI TẠO WEBSITE</button>
 				</div>
 			</form>
-			','600px', false, true, true) !!}
-		{!! modalForm('register-notify', '', '
+			', 'create-website', '600px', false, true, true) !!}
+		{!! modalForm('', '
 			<div class="center" style="padding: 30px 10px; line-height: 1.5">
 				<div class="pd-5">
 					Quý khách chưa đăng ký tài khoản, vui lòng đăng ký và đăng nhập tài khoản để có thể tạo trang web!
@@ -209,7 +209,7 @@
 					<a style="border-radius: 30px; padding: 10px 20px" href="/user/register" class="btn btn-primary">Click để đăng ký tài khoản</a>
 				</div>
 			</div>
-		','600px', false, true, true) !!}
+		', 'register-notify', '600px', false, true, true) !!}
 		<div id="demo-wrapper" class="desktop-view">
 			<div id="demo-container">
 				<iframe id="frame" src="{{($w->ssl_type == 0 ? 'http://' : 'https://')}}{{$w->domain}}"></iframe>     

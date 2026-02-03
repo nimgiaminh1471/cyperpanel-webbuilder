@@ -277,7 +277,7 @@
 								<a title="Cài đặt" data-modal="website-template-option{{$w->id}}" class="pd-5 modal-click" data-keep="1">
 									<i class="fa fa-cog"></i>
 								</a>
-								{!! modalForm("website-template-option".$w->id, "Thiết lập web mẫu: ".$w->domain, '
+								{!! modalForm("Thiết lập web mẫu: ".$w->domain, '
 									<form class="pd-20 website-action-form">
 										<div class="pd-5" style="margin-bottom: 10px">
 											Tên theme: <b>'.$w->app.'</b>
@@ -309,12 +309,12 @@
 											<button class="btn-primary website-action width-100" type="button" data-action="template" data-id="'.$w->id.'" data-domain="'.$w->domain.'">Lưu lại</button>
 										</div>
 									</form>
-								','600px', false, true, true) !!}
+								', "website-template-option".$w->id, '600px', false, true, true) !!}
 								{{-- Upload ảnh --}}
 								<a title="Đổi ảnh" data-modal="website-template-image{{$w->id}}" class="pd-5 modal-click" data-keep="1">
 									<i class="fa fa-image"></i>
 								</a>
-								{!! modalForm("website-template-image".$w->id, "Đổi ảnh web mẫu: ".$w->domain, '
+								{!! modalForm("Đổi ảnh web mẫu: ".$w->domain, '
 									<form class="pd-20" method="POST" enctype="multipart/form-data">
 										<input type="hidden" name="app" value="'.$w->app.'">
 										<div class="pd-10">
@@ -324,11 +324,11 @@
 											<button class="btn-primary width-100" type="submit">Đổi ảnh</button>
 										</div>
 									</form>
-								','600px', false, true, true) !!}
+								', "website-template-image".$w->id, '600px', false, true, true) !!}
 							</div>
 						@endif
 					</div>
-					{!! modalForm('create-website-'.$w->id, 'Nhập thông tin website để khởi tạo', '
+					{!! modalForm('Nhập thông tin website để khởi tạo', '
 						<form class="form create-webiste-form" action="/admin/WebsiteManager" method="POST" style="padding: 20px">
 							<div style="display:none">
 								<input type="password" tabindex="-1"/>
@@ -356,7 +356,7 @@
 								<button type="button" class="btn-primary width-50">KHỞI TẠO WEBSITE</button>
 							</div>
 						</form>
-						','600px', false, true, true) !!}
+						', 'create-website-'.$w->id, '600px', false, true, true) !!}
 				@endforeach
 			</div>
 		@endif
@@ -370,7 +370,7 @@
 		@endif
 	</div>
 	{!!
-		modalForm('register-notify', '', '
+		modalForm('', '
 			<div class="center" style="padding: 30px 10px; line-height: 1.5">
 				<div class="pd-5">
 					Quý khách chưa đăng ký tài khoản, vui lòng đăng ký và đăng nhập tài khoản để có thể tạo trang web!
@@ -379,7 +379,7 @@
 					<a style="border-radius: 30px; padding: 10px 20px" href="javascript:void(0)" class="btn btn-primary modal-click" href="javascript:void(0)" data-modal="register-box">Click để đăng ký tài khoản</a>
 				</div>
 			</div>
-		','600px', false, true, true)
+		', 'register-notify', '600px', false, true, true)
 	!!}
 
 </div>

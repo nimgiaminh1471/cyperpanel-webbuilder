@@ -316,7 +316,7 @@
 		Users::updateStorage($_POST["user"]["id"], $data);
 	}
 @endphp
-{!!modal('user-detail', $modalTitle??"", '<div class="panel-outer">'.($modalBody??"").'</div>','950px', $modalShow??false, true)!!}
+{!!modal($modalTitle??"", '<div class="panel-outer">'.($modalBody??"").'</div>', 'user-detail', '950px', $modalShow??false, true)!!}
 
 <script type="text/javascript">
 	// Thêm tài khoản

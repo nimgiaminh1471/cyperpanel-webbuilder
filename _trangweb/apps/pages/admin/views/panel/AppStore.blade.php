@@ -204,7 +204,7 @@
 </main>
 
 {{-- Xem chi tiết 1 mục --}}
-{!! modal('item-detail', 'Chi tiết', '<div class="apps-list-item-detail"></div>','550px', false, true) !!}
+{!! modal('Chi tiết', '<div class="apps-list-item-detail"></div>', 'item-detail', '550px', false, true) !!}
 
 {{-- Click thêm mới --}}
 @php
@@ -248,7 +248,7 @@
 		</form>
 	HTML;
 @endphp
-{!! modal('item-edit', 'Cập nhật ứng dụng', $formAddItem,'550px', false, true) !!}
+{!! modal('Cập nhật ứng dụng', $formAddItem, 'item-edit', '550px', false, true) !!}
 
 {{-- Thêm chuyên mục --}}
 <section class="modal modal-add-category hidden modal-allow-close modal-allow-scroll">
@@ -302,7 +302,7 @@
 </section>
 
 {{-- Cài đặt ứng dụng --}}
-{!! modalForm('app-install', 'Cài đặt gói', '<form class="pd-20"></form>','550px', false, true) !!}
+{!! modalForm('Cài đặt gói', '<form class="pd-20"></form>', 'app-install', '550px', false, true) !!}
 
 <style type="text/css">
 	#apps-list>section:last-child{

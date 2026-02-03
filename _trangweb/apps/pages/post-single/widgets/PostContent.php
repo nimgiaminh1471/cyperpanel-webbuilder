@@ -233,12 +233,12 @@ class PostContent{
 
 					case "copy":
 						$share.='<a title="Sao chép liên kết" data-modal="share-link" data-pos="top" class="tooltip link modal-click"><i class="fa '.$info["icon"].'"></i></a>';
-						$share.=modal("share-link", "Sao chép liên kết", '
+						$share.=modal("Sao chép liên kết", '
 							<div class="bg pd-10">
 								<input class="width-100" type="text" value="'.THIS_URL.'" />
 								<input class="width-100" style="margin-top: 5px" type="text" value="'.htmlEncode('<a href="'.THIS_URL.'">'.$post["title"].'</a>').'" />
 							</div>
-						','450px', false, true);
+						', "share-link", '450px', false, true);
 					break;
 
 					default:

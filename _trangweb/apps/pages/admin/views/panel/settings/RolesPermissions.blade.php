@@ -49,7 +49,7 @@
 		</div>
 
 		{{-- Chỉnh sửa chức vụ --}}
-		{!! modal('edit-role', 'Chỉnh sửa chức vụ', '<section class="bg pd-10 ajax-form"></section>','450px', false, true) !!}
+		{!! modal('Chỉnh sửa chức vụ', '<section class="bg pd-10 ajax-form"></section>', 'edit-role', '450px', false, true) !!}
 
 		{{-- Thiết lập quyền --}}
 		<div class="modal modal-set-permissions hidden modal-allow-close modal-allow-scroll">
@@ -107,7 +107,7 @@
 
 		{{-- Xóa chức vụ --}}
 		{!!
-			modal('delete-role', 'Xóa chức vụ', '
+			modal('Xóa chức vụ', '
 				<section class="bg pd-10 ajax-form">
 					<div class="form-mrg center">
 						<select name="role[move_to]">
@@ -120,7 +120,7 @@
 					</div>
 					<div class="hidden form-append-id"></div>
 				</section>
-			','450px', false, true)
+			', 'delete-role', '450px', false, true)
 		!!}
 	</div>
 

@@ -48,7 +48,7 @@ class ContactButton{
 					</form>
 				</section>
 			';
-			Assets::footer(modalForm("contact-form", __('GỬI YÊU CẦU THIẾT KẾ WEBISTE'), $contactForm, '570px', false, true));
+			Assets::footer(modalForm(__('GỬI YÊU CẦU THIẾT KẾ WEBISTE'), $contactForm, "contact-form", '570px', false, true));
 		}
 		
 		//Tạo menu

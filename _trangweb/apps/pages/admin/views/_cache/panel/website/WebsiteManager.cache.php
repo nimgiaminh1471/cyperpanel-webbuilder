@@ -1555,7 +1555,7 @@
 					</div>
 				</div>
 			</div>
-			<?php echo  modal("website-change-user", "Đổi người quản lý", '
+			<?php echo  modal("Đổi người quản lý", '
 				<div id="website-change-user">
 					'.($expiredDays > 2 ? '
 						<div class="menu">
@@ -1613,7 +1613,7 @@
 						}, $w).'
 					</form>
 				</div>
-			','450px', false, true, true) ; ?>
+			', "website-change-user", '450px', false, true, true) ; ?>
 			<script type="text/javascript">
 				$("#website-change-user").on("keyup change", ".input", function(){
 					$.post("", {website_change_user: $(this).val()}, function(response){
@@ -1642,7 +1642,7 @@
 				<?php endforeach; ?>
 			</div>
 			<?php foreach($webAction as $action=>$item): ?>
-				<?php echo  modal($item["icon"]."".$w->id, $item["title"], '
+				<?php echo  modal($item["title"], '
 					<form class="bg website-action-form">
 						'.$item["body"].'
 						<div class="website-action-msg-'.$w->id.' hidden alert-danger">'.($websiteActionMsg??'').'</div>
@@ -1662,7 +1662,7 @@
 							' ).'
 						' : '').'
 					</form>
-				',$item['width'] ?? '450px', false, true, true) ; ?>
+				', $item["icon"]."".$w->id, $item['width'] ?? '450px', false, true, true) ; ?>
 			<?php endforeach; ?>
 		</div>
 		

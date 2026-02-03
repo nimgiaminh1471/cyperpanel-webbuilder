@@ -165,7 +165,7 @@
 		["type"=>"select", "name"=>"close_icon", "title"=>"Kiểu nút đóng", "option"=>["f00d"=>"Kiểu 1","f05c"=>"Kiểu 2","f2d4"=>"Kiểu 3","f00c"=>"Kiểu 4","f070"=>"Kiểu 5", "f2d1"=>"Kiểu 6"], "value"=>"f00d"],
 		["html"=>'
 		<a data-modal="demo" class="menu block modal-click">Click để hiện hộp thông báo</a>
-		'.modal('demo', '<i class="fa-icon fa fa-info-circle"></i> Tiêu đề thông báo', '<div class="pd-10">Nội dung thông báo</div>','750px', false, true, true).'
+		'.modal('<i class="fa-icon fa fa-info-circle"></i> Tiêu đề thông báo', '<div class="pd-10">Nội dung thông báo</div>', 'demo', '750px', false, true, true).'
 		']
 	],"",false)
 !!}

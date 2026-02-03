@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 ob_start();
 define("PAGE", [
 	"name"        => "Admin Panel",
@@ -80,7 +80,7 @@ $_Config=[
 		if($maxWidth>50){
 			//Nội dung ẩn
 			$out.='<div data-modal="adminBody_'.$prefix.'" class="heading link modal-click">'.$heading.' <i class="right-icon fa fa-chevron-right"></i></div>';
-			$out.=modal('adminBody_'.$prefix, $heading, '<div class="bg">'.$op.'</div>',$maxWidth.'px');
+			$out.=modal($heading, '<div class="bg">'.$op.'</div>', 'adminBody_'.$prefix, $maxWidth.'px');
 		}else{
 			//Nội dung hiện
 			$out.='
@@ -103,7 +103,7 @@ $_Config=[
 		'.THEME_INFO.'
 		<div class="center rm-radius width-100 alert-info" id="adminPanelPendingSetup">Đang tiến hành khởi tạo: <i></i>/<i></i></div>
 		';
-		echo modal('setup', '', $setupContent, '600px', true, false, true);
+		echo modal('', $setupContent, 'setup', '600px', true, false, true);
 	}
 ?>
 <link rel="stylesheet"

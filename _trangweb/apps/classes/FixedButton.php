@@ -147,7 +147,7 @@ class FixedButton{
 				</a>';
 			}
 			if(isset($item["modal"])){
-				Assets::footer(modal($modalID, '<i style="min-width: 17px" class="fa '.$item['icon'].'"></i> '.$item["title"], $item["modal"], '550px', false, true));
+				Assets::footer(modal('<i style="min-width: 17px" class="fa '.$item['icon'].'"></i> '.$item["title"], $item["modal"], $modalID, '550px', false, true));
 			}
 			$count=$count+$item['count'];
 			$countNav++;

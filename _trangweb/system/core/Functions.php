@@ -265,12 +265,12 @@ function randomString($length=10, $number=true) {
 
 
 
-// Modal box
+// Modal box (PHP 8: required params trước optional)
 /*
-echo modal('id1', 'tiêu đề', '<div class="menu">nội dung 1</div>','350px', false, true);
+echo modal('tiêu đề', '<div class="menu">nội dung 1</div>', 'id1', '350px', false, true);
 echo '<a data-modal="id1" class="link modal-click">Click để hiện hộp thông báo</a>';
 */
-function modal($id='', $title, $content, $width='90%', $show=false, $close=true, $scroll=true){
+function modal($title, $content, $id = '', $width = '90%', $show = false, $close = true, $scroll = true){
 	$output="";
 	Assets::footer("/assets/general/js/modal.js");
 	$output.= '
@@ -288,7 +288,7 @@ function modal($id='', $title, $content, $width='90%', $show=false, $close=true,
 	return $output;
 }
 
-function modalForm($id='', $title, $content, $width='90%', $show=false, $close=true, $scroll=true){
+function modalForm($title, $content, $id = '', $width = '90%', $show = false, $close = true, $scroll = true){
 	$output="";
 	Assets::footer("/assets/general/js/modal.js");
 	$output.= '

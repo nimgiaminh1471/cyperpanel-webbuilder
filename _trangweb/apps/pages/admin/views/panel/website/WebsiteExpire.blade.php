@@ -157,7 +157,7 @@
 		</div>
 	</section>
 </main>
-{!! modal('website-detail', 'Chi tiết website', '<div class="panel-outer"></div>','950px', false, true) !!}
+{!! modal('Chi tiết website', '<div class="panel-outer"></div>', 'website-detail', '950px', false, true) !!}
 <script type="text/javascript">
 
 	//Click xem chi tiết từng web
