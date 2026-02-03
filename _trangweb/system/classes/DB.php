@@ -52,10 +52,10 @@ class DB implements ArrayAccess,IteratorAggregate{
 	}
 
 
-	//Tạo chuỗi truy vấn an toàn
+	//Tạo chuỗi truy vấn an toàn (PHP 8.1: không truyền null vào mysqli_real_escape_string)
 	public function escapeString($str){
-		if ( !$this->connect ) return (string) $str;
-		return mysqli_real_escape_string($this->connect, $str);
+		if ( !$this->connect ) return (string) ($str ?? '');
+		return mysqli_real_escape_string($this->connect, (string) ($str ?? ''));
 	}
 	public static function safeString($str){
 		return (new self)->escapeString($str);
