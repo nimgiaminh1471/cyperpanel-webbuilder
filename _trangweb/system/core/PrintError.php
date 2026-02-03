@@ -3,7 +3,7 @@
 # File báo lỗi tùy chỉnh
 */
 
-function errorHandler($level, $msg, $file, $line, $context){
+function errorHandler($level, $msg, $file, $line, $context = null){
 	if( explode(":", $msg)[0]=="mysqli_connect()" ){
 		return;
 	}

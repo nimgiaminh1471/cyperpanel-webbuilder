@@ -21,7 +21,7 @@ spl_autoload_register(function($class){
 });
 
 //Nhúng các files functions
-foreach( array_merge(["PrintError.php","Functions.php"], glob(APPS_ROOT."/functions/*.php")) as $f){
+foreach( array_merge(["PrintError.php","Functions.php"], glob(APPS_ROOT."/functions/*.php") ?: []) as $f){
 	require($f);
 }
 

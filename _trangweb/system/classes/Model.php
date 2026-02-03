@@ -73,12 +73,12 @@ class Model implements ArrayAccess,IteratorAggregate{
         //Kiểm column có cho phép ghi
         if(is_array($fillable)){
             foreach($data as $col=>$value){
-            if( strlen(array_search($col,$fillable))==0 ){ $deny=1; }
+            if( !in_array($col, $fillable, true) ){ $deny=1; }
             }
             if(empty($deny)){ $allow=true; }
         }else if(is_array($guarded)){
             foreach($data as $col=>$value){
-            if( strlen(array_search($col,$guarded))!=0 ){ $deny=1; }
+            if( in_array($col, $guarded, true) ){ $deny=1; }
             }
             if(empty($deny)){ $allow=true; }
         }else{
@@ -303,7 +303,7 @@ class Model implements ArrayAccess,IteratorAggregate{
                 $id=$data;
                 $data=[];
             }
-            if(array_search("created_at",$this->withPivot)){
+            if(in_array("created_at", (array)$this->withPivot, true)){
                 $data["created_at"]=timestamp();
                 $data["updated_at"]=timestamp();
             }
@@ -338,7 +338,7 @@ class Model implements ArrayAccess,IteratorAggregate{
                 $id=$data;
                 $data=[];
             }
-            if(array_search("updated_at",$this->withPivot)){
+            if(in_array("updated_at", (array)$this->withPivot, true)){
                 $data["created_at"]=timestamp();
                 $data["updated_at"]=timestamp();
             }
@@ -349,7 +349,7 @@ class Model implements ArrayAccess,IteratorAggregate{
     //Cập nhật bản ghi beLongsToMany
     public function updateExistingPivot($id,$attr){
         extract($this->beLongsToMany);
-        if(array_search("updated_at",$this->withPivot)){
+        if(in_array("updated_at", (array)$this->withPivot, true)){
             $attr["updated_at"]=timestamp();
         }
         DB::table($pivotTable)->where($firstKey,$this->findPrimaryId)->where($secondKey,$id)->update( array_merge([$firstKey=>$this->findPrimaryId, $secondKey=>$id],$attr));
@@ -379,28 +379,26 @@ class Model implements ArrayAccess,IteratorAggregate{
         return $array ?? (array)$items;
     }
 
-    //Truy vấn dữ liệu nhanh dạng array[]
-    public function offsetGet($offset){
+    //Truy vấn dữ liệu nhanh dạng array[] (PHP 8 ArrayAccess)
+    public function offsetGet(mixed $offset): mixed {
         $this->beLongsToManyGet();
         return $this->items[$offset] ?? false;
     }
-    public function offsetExists($offset){
+    public function offsetExists(mixed $offset): bool {
         $this->beLongsToManyGet();
         if(is_array($this->items) && isset($this->items[$offset])){return true;}
         return false;
     }
-    public function offsetUnset($offset){
+    public function offsetUnset(mixed $offset): void {
         $this->beLongsToManyGet();
         unset($this->items[$offset]);
     }
-    public function offsetSet($offset, $value){}
+    public function offsetSet(mixed $offset, mixed $value): void {}
 
-
-
-    //Xuất dữ liệu $this->items
-    public function getIterator(){
+    //Xuất dữ liệu $this->items (PHP 8 IteratorAggregate)
+    public function getIterator(): \Traversable {
         $this->beLongsToManyGet();
-        return new ArrayIterator($this->items);
+        return new \ArrayIterator($this->items ?? []);
     }
 
 

@@ -30,7 +30,7 @@ class DB implements ArrayAccess,IteratorAggregate{
 			$this->connection["db_password"] ?? CONFIG["DB"]["db_password"],
 			$this->connection["db_name"] ?? CONFIG["DB"]["db_name"]
 		);
-		if( empty($this->connect) ){
+		if( $this->connect === false || empty($this->connect) ){
 			PrintError("Hệ thống đang bảo trì, vui lòng quay lại sau, xin cảm ơn!");
 		}
 		mysqli_set_charset($this->connect, CONFIG["DB"]["db_charset"]);
@@ -41,8 +41,8 @@ class DB implements ArrayAccess,IteratorAggregate{
 	//Câu lệnh query
 	public function sqlQuery($sql=''){
 		$query = mysqli_query($this->connect, $sql);
-		if( !empty($this->connect->error) ){
-			$errorMsg = str_replace("'", "\\'", $this->connect->error).': '.str_replace("'", "\\'", $sql);
+		if( $this->connect && !empty(mysqli_error($this->connect)) ){
+			$errorMsg = str_replace("'", "\\'", mysqli_error($this->connect)).': '.str_replace("'", "\\'", $sql);
 			Assets::footer('<script>console.log(\''.$errorMsg.'\')</script>');
 		}
 		return $query;
@@ -54,8 +54,8 @@ class DB implements ArrayAccess,IteratorAggregate{
 
 	//Tạo chuỗi truy vấn an toàn
 	public function escapeString($str){
-		$real_escape = mysqli_real_escape_string($this->connect,$str);
-		return $real_escape;
+		if ( !$this->connect ) return (string) $str;
+		return mysqli_real_escape_string($this->connect, $str);
 	}
 	public static function safeString($str){
 		return (new self)->escapeString($str);
@@ -655,23 +655,23 @@ class DB implements ArrayAccess,IteratorAggregate{
 		}
 	}
 
-    //Xuất dữ liệu $this->items
-	public function getIterator(){
-		return new ArrayIterator($this->items);
+    //Xuất dữ liệu $this->items (PHP 8 IteratorAggregate)
+	public function getIterator(): \Traversable {
+		return new \ArrayIterator($this->items ?? []);
 	}
 
-    //Truy vấn dữ liệu nhanh dạng array[]
-	public function offsetGet($offset){
+    //Truy vấn dữ liệu nhanh dạng array[] (PHP 8 ArrayAccess)
+	public function offsetGet(mixed $offset): mixed {
 		return $this->items[$offset] ?? false;
 	}
-	public function offsetExists($offset){
+	public function offsetExists(mixed $offset): bool {
 		if(is_array($this->items) && isset($this->items[$offset])){return true;}
 		return false;
 	}
-	public function offsetUnset($offset){
+	public function offsetUnset(mixed $offset): void {
 		unset($this->items[$offset]);
 	}
-	public function offsetSet($offset, $value){}
+	public function offsetSet(mixed $offset, mixed $value): void {}
 
     //Đóng kết nối database
 	function __destruct(){
