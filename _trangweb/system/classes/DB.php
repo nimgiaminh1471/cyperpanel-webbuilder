@@ -493,8 +493,8 @@ class DB implements ArrayAccess,IteratorAggregate{
 
 
 	//Link phân trang
-	public function links($op=""){
-		return paginationLinks($op, $this->pageCurrent, $this->limit, $this->total());
+	public function links($op = []){
+		return paginationLinks($this->pageCurrent, $this->limit, $this->total(), is_array($op) ? $op : []);
 	}
 
 

@@ -443,8 +443,8 @@ function permission($key, $userId = null, $redirect = null){
 	return false;
 }
 
-//Phân trang
-function paginationLinks($op=[], $pageCurrent, $limit, $total, $amount = 3, $out=""){
+//Phân trang (PHP 8: required params trước optional)
+function paginationLinks($pageCurrent, $limit, $total, $op = [], $amount = 3, $out = ""){
 	if($limit<1){$limit=1;}
 	if($total<=$limit){ return; }
 	$totalPage   = ceil($total/$limit);
@@ -512,7 +512,7 @@ function htmlEditorOutput($content){
 		$page=$_GET["page"]??1;
 		$newContent=$part[($page-1)] ?? printError("Trang không tồn tại", "Lỗi");
 		$config=(strpos($content, '<script')===false && strpos($content, 'class="panel')===false ? ["ajaxLoadId"=>"postsBody"] : '');
-		$content=$newContent.'<div class="center">'.paginationLinks($config, $page, 1, count($part), $out="").'</div>';
+		$content=$newContent.'<div class="center">'.paginationLinks($page, 1, count($part), $config, 3, "").'</div>';
 	}
 
 	//Media player
