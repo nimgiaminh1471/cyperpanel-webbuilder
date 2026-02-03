@@ -27,45 +27,45 @@ class WebBuilder{
 	// Khởi tạo website
 	public static function setup($web, $userLogin, $connection){
 
-		// Tạo tên miền nếu chưa có
-		if( !is_dir( self::userPublic($web->domain) ) ){
-			if( isset($_POST["setup"]) ){
-				$status = self::createDomain($web);
-			}
-			return self::loading([
-				"msg"    => "Đang khởi tạo tên miền, xin vui lòng chờ...",
-				"status" => $status ?? null
-			]);
-		}
+		// // Tạo tên miền nếu chưa có
+		// if( !is_dir( self::userPublic($web->domain) ) ){
+		// 	if( isset($_POST["setup"]) ){
+		// 		$status = self::createDomain($web);
+		// 	}
+		// 	return self::loading([
+		// 		"msg"    => "Đang khởi tạo tên miền, xin vui lòng chờ...",
+		// 		"status" => $status ?? null
+		// 	]);
+		// }
 
-		// Copy mã nguồn sang tên miền
-		if( !is_dir( self::userPublic($web->domain)."/builder" ) ){
-			if( isset($_POST["setup"]) ){
-				$status = self::copySourceCodeToDomain($web);
-			}
-			return self::loading([
-				"msg"    => "Đang khởi tạo mã nguồn website, xin vui lòng chờ...",
-				"status" => $status ?? null
-			]);
-		}
+		// // Copy mã nguồn sang tên miền
+		// if( !is_dir( self::userPublic($web->domain)."/builder" ) ){
+		// 	if( isset($_POST["setup"]) ){
+		// 		$status = self::copySourceCodeToDomain($web);
+		// 	}
+		// 	return self::loading([
+		// 		"msg"    => "Đang khởi tạo mã nguồn website, xin vui lòng chờ...",
+		// 		"status" => $status ?? null
+		// 	]);
+		// }
 
-		// Tạo database
-		if( empty( webConfig($web->domain, "DB_USER") ) ){
-			if( isset($_POST["setup"]) ){
-				$status = self::createDatabase($web);
-			}
-			// Cập nhật chứng chỉ mặc định theo tên miền chính
-			WebBuilder::updateSSL(
-				$web->domain,
-				Storage::setting("builder_ssl_private_key"),
-				Storage::setting("builder_ssl_certificate"),
-				Storage::setting("builder_ssl_cacert")
-			);
-			return self::loading([
-				"msg"    => "Đang khởi tạo dữ liệu, xin vui lòng chờ...",
-				"status" => $status ?? null
-			]);
-		}
+		// // Tạo database
+		// if( empty( webConfig($web->domain, "DB_USER") ) ){
+		// 	if( isset($_POST["setup"]) ){
+		// 		$status = self::createDatabase($web);
+		// 	}
+		// 	// Cập nhật chứng chỉ mặc định theo tên miền chính
+		// 	WebBuilder::updateSSL(
+		// 		$web->domain,
+		// 		Storage::setting("builder_ssl_private_key"),
+		// 		Storage::setting("builder_ssl_certificate"),
+		// 		Storage::setting("builder_ssl_cacert")
+		// 	);
+		// 	return self::loading([
+		// 		"msg"    => "Đang khởi tạo dữ liệu, xin vui lòng chờ...",
+		// 		"status" => $status ?? null
+		// 	]);
+		// }
 		
 		// Import dữ liệu
 		if( empty($userLogin) ){
@@ -252,6 +252,9 @@ foreach( glob( dirname(__DIR__, 2)."/".BUILDER_DOMAIN."/_trangweb/builder/includ
 		$publicRoot = self::userPublic($w->domain);
 		$databaseFileNameLoad = glob(SYSTEM_ROOT."/builder/database-setup/*_w{$w->id}.sql")[0] ?? glob(SYSTEM_ROOT."/builder/database-setup/*_u{$w->id}.sql")[0] ?? null;
 		$databaseFileName     = $databaseFileNameLoad ?? SYSTEM_ROOT."/builder/database-template/{$w->app}.sql";
+		// var_dump all info 
+		var_dump($w, $connection, $databaseFileName, $databaseFileNameLoad);
+		die();
 		if( !file_exists($databaseFileName) ){
 			return "
 				<div>
