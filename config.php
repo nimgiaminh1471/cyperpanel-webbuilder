@@ -8,9 +8,9 @@ define("CONFIG", [
 	// Database
 	"DB"=>[
 		"db_host"     =>  "localhost",
-		"db_user"     =>  "ezdi_dev",
-		"db_name"     =>  "ezdi_dev",
-		"db_password" =>  '@Kw21w3%5xnwsB6t',
+		"db_user"     =>  "exam_ezdi_dev",
+		"db_name"     =>  "exam_ezdi_dev",
+		"db_password" =>  'gpjMiIPnByw-p+Ow',
 		"db_charset"  =>  "utf8mb4"
 	],
 	// Panel: "directadmin" | "cyberpanel"
