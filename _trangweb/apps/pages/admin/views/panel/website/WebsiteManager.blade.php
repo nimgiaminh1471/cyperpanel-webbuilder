@@ -74,9 +74,9 @@
 			$createWebsiteMsg="Bạn chỉ được tạo tối đa ".Storage::setting("builder_parameters_quantity_website", 1)." website, hãy nâng cấp gói seller!";
 		}
 
-		if( user("website_created_today")>=5 && !permission("seller|agency|website_manager") ){
-			$createWebsiteMsg="Bạn chỉ được tạo thử tối đa 5 lần/1 ngày, vui lòng tạo tiếp vào ngày mai!";
-		}
+		// if( user("website_created_today")>=5 && !permission("seller|agency|website_manager") ){
+		// 	$createWebsiteMsg="Bạn chỉ được tạo thử tối đa 5 lần/1 ngày, vui lòng tạo tiếp vào ngày mai!";
+		// }
 
 		if( empty( POST("password") ) ){
 			$createWebsiteMsg = "Vui lòng nhập mật khẩu";
