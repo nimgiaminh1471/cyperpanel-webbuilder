@@ -51,6 +51,15 @@ class DB implements ArrayAccess,IteratorAggregate{
 		return (new self)->sqlQuery($sql);
 	}
 
+	/** Check if a table exists (for given connection or default). Returns true if table exists. */
+	public static function tableExists($tableName, $connection = null){
+		$db = new self('', is_array($connection) ? $connection : []);
+		if ( empty($db->connect) ) return false;
+		$escaped = mysqli_real_escape_string($db->connect, (string) ($tableName ?? ''));
+		if ( $escaped === '' ) return false;
+		$result = @mysqli_query($db->connect, "SHOW TABLES LIKE '{$escaped}'");
+		return $result && mysqli_num_rows($result) > 0;
+	}
 
 	//Tạo chuỗi truy vấn an toàn (PHP 8.1: không truyền null vào mysqli_real_escape_string)
 	public function escapeString($str){

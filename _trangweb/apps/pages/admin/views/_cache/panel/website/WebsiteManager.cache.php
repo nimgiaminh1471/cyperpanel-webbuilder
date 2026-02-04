@@ -252,26 +252,26 @@
 			'db_password' => webConfig($w->domain, "DB_PASSWORD"),
 			'db_name'     => webConfig($w->domain, "DB_NAME")
 		];
-		var_dump($connection);
-		$prefix = webConfig($w->domain, 'table_prefix');
-		var_dump($prefix);
-		die();
-		$getLoginAdmin = DB::table("{$prefix}usermeta", $connection)
-			->rightJoin("{$prefix}users", "{$prefix}users.ID", "=", "{$prefix}usermeta.user_id")
-			->where("{$prefix}usermeta.meta_key", "{$prefix}user_level")
-			->where("{$prefix}usermeta.meta_value", 10)
-			->orderBy("{$prefix}usermeta.user_id", "ASC")
-			->first(true);
-		if( empty($prefix) ){
-			echo '
-				<div class="alert-danger">
-					Hãy xóa website & khởi tạo lại nếu bị lỗi!
-				</div>
-			';
-		}else if( !empty($getLoginAdmin->user_login) ){
-			$userLogin = $getLoginAdmin->user_login;
-			$userPassword = $getLoginAdmin->user_pass;
+		$getLoginAdmin = null;
+		if ( DB::tableExists("{$prefix}usermeta", $connection) ) {
+			$getLoginAdmin = DB::table("{$prefix}usermeta", $connection)
+				->rightJoin("{$prefix}users", "{$prefix}users.ID", "=", "{$prefix}usermeta.user_id")
+				->where("{$prefix}usermeta.meta_key", "{$prefix}user_level")
+				->where("{$prefix}usermeta.meta_value", 10)
+				->orderBy("{$prefix}usermeta.user_id", "ASC")
+				->first(true);
+			if( empty($prefix) ){
+				echo '
+					<div class="alert-danger">
+						Hãy xóa website & khởi tạo lại nếu bị lỗi!
+					</div>
+				';
+			}else if( !empty($getLoginAdmin->user_login) ){
+				$userLogin = $getLoginAdmin->user_login;
+				$userPassword = $getLoginAdmin->user_pass;
+			}
 		}
+
 		// Check khởi tạo website
 		echo WebBuilder::setup($w, $userLogin ?? null, $connection);
 	}else{
