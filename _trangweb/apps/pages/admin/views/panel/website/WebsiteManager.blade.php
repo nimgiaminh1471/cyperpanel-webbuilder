@@ -258,9 +258,6 @@
 	
 	// Kiểm tra tên miền đã thuộc hệ thống hiện tại hay chưa
 	$correctDomain = (explode(".", $w->default_domain)[0]).".".DOMAIN; // Tên miền đang thuộc hệ thống hiện tại
-	// add debug log
-	var_dump($w->default_domain, $correctDomain);
-	die();
 	if($w->default_domain == $correctDomain){
 		// Kết nối tới SQL database của web
 		$connection = [
@@ -268,7 +265,10 @@
 			'db_password' => webConfig($w->domain, "DB_PASSWORD"),
 			'db_name'     => webConfig($w->domain, "DB_NAME")
 		];
+		var_dump($connection);
 		$prefix = webConfig($w->domain, 'table_prefix');
+		var_dump($prefix);
+		die();
 		$getLoginAdmin = DB::table("{$prefix}usermeta", $connection)
 			->rightJoin("{$prefix}users", "{$prefix}users.ID", "=", "{$prefix}usermeta.user_id")
 			->where("{$prefix}usermeta.meta_key", "{$prefix}user_level")
