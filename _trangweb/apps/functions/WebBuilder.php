@@ -59,6 +59,7 @@ function deleteWebsiteExpired(){
 //Lấy thông tin config của từng web
 function webConfig($domain, $key = null, $configFile = null){
 	$indexFile = $configFile ?? classes\WebBuilder::userPublic($domain)."/wp-config.php";
+	var_dump($indexFile);
 	if( !file_exists($indexFile) ){
 		return null;
 	}
