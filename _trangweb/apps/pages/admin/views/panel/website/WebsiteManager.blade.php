@@ -258,6 +258,13 @@
 	
 	// Kiểm tra tên miền đã thuộc hệ thống hiện tại hay chưa
 	$correctDomain = (explode(".", $w->default_domain)[0]).".".DOMAIN; // Tên miền đang thuộc hệ thống hiện tại
+	// add debug log
+	$debugLog = SYSTEM_ROOT.'/builder/debug-import-db.log';
+	$debug = date('Y-m-d H:i:s')."\n"
+		."w->default_domain: ".($w->default_domain ?? 'null')."\n"
+		."correctDomain:     ".$correctDomain."\n"
+		."---\n";
+	file_put_contents($debugLog, $debug, FILE_APPEND);
 	if($w->default_domain == $correctDomain){
 		// Kết nối tới SQL database của web
 		$connection = [
